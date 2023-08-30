@@ -8,6 +8,7 @@
 # + env ISAN: if set, build the benchmark with ISAN/fatal canaries (default:
 #       unset)
 # + env HARDEN: if set, build the benchmark with hardened canaries (default:
+# + env IMG_TAG: append a tag to the image name
 #       unset)
 ##
 
@@ -42,7 +43,7 @@ if [ ! -z $HARDEN ]; then
 fi
 
 set -x
-docker build -t "$IMG_NAME" \
+docker build -t "$IMG_NAME.$IMG_TAG" \
     --build-arg fuzzer_name="$FUZZER" \
     --build-arg target_name="$TARGET" \
     --build-arg USER_ID=$(id -u $USER) \
