@@ -85,4 +85,5 @@ ENV LDFLAGS -L"${OUT}" -g
 
 RUN ${FUZZER}/instrument.sh
 
-ENTRYPOINT "${MAGMA}/run.sh"
+#ENTRYPOINT "${MAGMA}/run.sh"
+ENTRYPOINT /bin/bash
